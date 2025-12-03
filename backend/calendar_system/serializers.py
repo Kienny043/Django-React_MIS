@@ -1,9 +1,8 @@
 from rest_framework import serializers
-from .models import Event
+from .models import CalendarEvent
 
 
-class EventSerializer(serializers.ModelSerializer):
+class CalendarEventSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Event
+        model = CalendarEvent
         fields = "__all__"
-        read_only_fields = ["created_at"]

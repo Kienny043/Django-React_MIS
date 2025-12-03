@@ -1,7 +1,7 @@
-from rest_framework import routers
-from .views import EventViewSet
+from django.urls import path
+from .views import CalendarEventListCreateView, CalendarEventDetailView
 
-router = routers.DefaultRouter()
-router.register(r"", EventViewSet, basename="events")
-
-urlpatterns = router.urls
+urlpatterns = [
+    path("", CalendarEventListCreateView.as_view(), name="calendar-list-create"),
+    path("<int:pk>/", CalendarEventDetailView.as_view(), name="calendar-detail"),
+]
